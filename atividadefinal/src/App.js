@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
@@ -11,6 +12,7 @@ function App() {
     const [searchTerm, setSearchTerm] = useState('');
     const [favorites, setFavorites] = useState([]);
 
+    // Função para buscar os favoritos da API
     const fetchFavorites = async () => {
         try {
             const res = await axios.get('http://localhost:3001/favorites');
@@ -21,18 +23,21 @@ function App() {
         }
     };
 
+    // Buscar favoritos ao montar o componente
     useEffect(() => {
         fetchFavorites();
     }, []);
 
+    // Função para adicionar um favorito
     const addFavorite = async (pokemon) => {
         try {
-            const existing = await axios.get(`http://localhost:3001/favorites?name=${pokemon.name}`);
-            console.log(`Verificando se ${pokemon.name} já está nos favoritos:`, existing.data); 
+            // Verifica se o Pokémon já está nos favoritos pelo 'pokemonId'
+            const existing = await axios.get(`http://localhost:3001/favorites?pokemonId=${pokemon.pokemonId}`);
+            console.log(`Verificando se ${pokemon.name} já está nos favoritos:`, existing.data); // Log
             if (existing.data.length === 0) {
                 const res = await axios.post('http://localhost:3001/favorites', pokemon);
-                console.log('Favorito adicionado:', res.data); 
-                setFavorites(prevFavorites => [...prevFavorites, res.data]);
+                console.log('Favorito adicionado:', res.data); // Log
+                setFavorites(prevFavorites => [...prevFavorites, res.data]); // Atualiza o estado localmente
             } else {
                 alert(`${pokemon.name} já está nos favoritos!`);
             }
@@ -41,11 +46,12 @@ function App() {
         }
     };
 
+    // Função para remover um favorito
     const removeFavorite = async (id) => {
         try {
             await axios.delete(`http://localhost:3001/favorites/${id}`);
-            console.log(`Favorito com id ${id} removido`); 
-            setFavorites(prevFavorites => prevFavorites.filter(pokemon => pokemon.id !== id));
+            console.log(`Favorito com id ${id} removido`); // Log
+            setFavorites(prevFavorites => prevFavorites.filter(pokemon => pokemon.id !== id)); // Atualiza o estado localmente
         } catch (error) {
             console.error('Erro ao remover favorito:', error);
         }

@@ -24,22 +24,24 @@ const PokemonCard = ({ name, url, addFavorite }) => {
     useEffect(() => {
         const checkFavorite = async () => {
             try {
-                const res = await axios.get(`http://localhost:3001/favorites?name=${name}`);
+                const res = await axios.get(`http://localhost:3001/favorites?pokemonId=${details ? details.id : ''}`);
                 setIsFavorite(res.data.length > 0);
             } catch (error) {
                 console.error('Erro ao verificar favorito:', error);
             }
         };
 
-        checkFavorite();
-    }, [name]);
+        if (details) {
+            checkFavorite();
+        }
+    }, [details, name]);
 
     const toggleFavorite = () => {
         if (isFavorite && details) {
             alert('Para remover um favorito, utilize a lista de favoritos.');
         } else if (details) {
             const pokemonToAdd = {
-                id: details.id,
+                pokemonId: details.id,
                 name: details.name,
                 url: url
             };
