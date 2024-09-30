@@ -1,0 +1,12 @@
+.search-form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-form input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ff1c1c;
+    border-radius: 5px;
+}
