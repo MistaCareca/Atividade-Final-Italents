@@ -1,4 +1,3 @@
-// src/components/Layout/Layout.js
 import React from 'react';
 import './Layout.css';
 

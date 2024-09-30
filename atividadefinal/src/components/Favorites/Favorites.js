@@ -1,4 +1,3 @@
-// src/components/Favorites/Favorites.js
 import React from 'react';
 import './Favorites.css';
 

@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
@@ -12,7 +11,6 @@ function App() {
     const [searchTerm, setSearchTerm] = useState('');
     const [favorites, setFavorites] = useState([]);
 
-    // Função para buscar os favoritos da API
     const fetchFavorites = async () => {
         try {
             const res = await axios.get('http://localhost:3001/favorites');
@@ -22,15 +20,12 @@ function App() {
         }
     };
 
-    // Buscar favoritos ao montar o componente
     useEffect(() => {
         fetchFavorites();
     }, []);
 
-    // Função para adicionar um favorito
     const addFavorite = async (pokemon) => {
         try {
-            // Verifica se o Pokémon já está nos favoritos
             const existing = await axios.get(`http://localhost:3001/favorites?name=${pokemon.name}`);
             if (existing.data.length === 0) {
                 await axios.post('http://localhost:3001/favorites', pokemon);
@@ -43,7 +38,6 @@ function App() {
         }
     };
 
-    // Função para remover um favorito
     const removeFavorite = async (id) => {
         try {
             await axios.delete(`http://localhost:3001/favorites/${id}`);

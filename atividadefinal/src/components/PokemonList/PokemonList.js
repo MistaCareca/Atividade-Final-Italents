@@ -1,4 +1,3 @@
-// src/components/PokemonList/PokemonList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PokemonCard from '../PokemonCard/PokemonCard';
@@ -51,7 +50,7 @@ const PokemonList = ({ search, addFavorite }) => {
                         key={pokemon.name}
                         name={pokemon.name}
                         url={pokemon.url}
-                        addFavorite={addFavorite} // Passa a função de adicionar favorito
+                        addFavorite={addFavorite} 
                     />
                 ))}
             </div>

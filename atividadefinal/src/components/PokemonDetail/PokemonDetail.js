@@ -1,4 +1,3 @@
-// src/components/PokemonDetail/PokemonDetail.js
 import React from 'react';
 import './PokemonDetail.css';
 

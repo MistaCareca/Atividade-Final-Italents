@@ -1,4 +1,3 @@
-// src/components/PokemonCard/PokemonCard.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PokemonDetail from '../PokemonDetail/PokemonDetail';
@@ -37,7 +36,6 @@ const PokemonCard = ({ name, url, addFavorite }) => {
 
     const toggleFavorite = () => {
         if (isFavorite && details) {
-            // O usuário não pode remover diretamente aqui; a remoção é feita no componente Favorites
             alert('Para remover um favorito, utilize a lista de favoritos.');
         } else if (details) {
             const pokemonToAdd = {
