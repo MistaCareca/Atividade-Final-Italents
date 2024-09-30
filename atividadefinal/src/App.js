@@ -14,6 +14,7 @@ function App() {
     const fetchFavorites = async () => {
         try {
             const res = await axios.get('http://localhost:3001/favorites');
+            console.log('Favoritos buscados:', res.data); // Log
             setFavorites(res.data);
         } catch (error) {
             console.error('Erro ao buscar favoritos:', error);
@@ -27,9 +28,11 @@ function App() {
     const addFavorite = async (pokemon) => {
         try {
             const existing = await axios.get(`http://localhost:3001/favorites?name=${pokemon.name}`);
+            console.log(`Verificando se ${pokemon.name} já está nos favoritos:`, existing.data); 
             if (existing.data.length === 0) {
-                await axios.post('http://localhost:3001/favorites', pokemon);
-                fetchFavorites();
+                const res = await axios.post('http://localhost:3001/favorites', pokemon);
+                console.log('Favorito adicionado:', res.data); 
+                setFavorites(prevFavorites => [...prevFavorites, res.data]);
             } else {
                 alert(`${pokemon.name} já está nos favoritos!`);
             }
@@ -41,7 +44,8 @@ function App() {
     const removeFavorite = async (id) => {
         try {
             await axios.delete(`http://localhost:3001/favorites/${id}`);
-            fetchFavorites();
+            console.log(`Favorito com id ${id} removido`); 
+            setFavorites(prevFavorites => prevFavorites.filter(pokemon => pokemon.id !== id));
         } catch (error) {
             console.error('Erro ao remover favorito:', error);
         }

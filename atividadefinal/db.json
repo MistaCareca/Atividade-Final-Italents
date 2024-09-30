@@ -24,6 +24,21 @@
       "id": 43,
       "name": "oddish",
       "url": "https://pokeapi.co/api/v2/pokemon/43/"
+    },
+    {
+      "id": 3,
+      "name": "venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/3/"
+    },
+    {
+      "id": 8,
+      "name": "wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon/8/"
+    },
+    {
+      "id": 6,
+      "name": "charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon/6/"
     }
   ]
 }

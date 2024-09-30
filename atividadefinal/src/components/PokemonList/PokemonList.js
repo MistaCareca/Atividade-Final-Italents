@@ -50,7 +50,7 @@ const PokemonList = ({ search, addFavorite }) => {
                         key={pokemon.name}
                         name={pokemon.name}
                         url={pokemon.url}
-                        addFavorite={addFavorite} 
+                        addFavorite={addFavorite}
                     />
                 ))}
             </div>
