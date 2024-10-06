@@ -3,7 +3,7 @@ import axios from 'axios';
 import PokemonCard from '../PokemonCard/PokemonCard';
 import './PokemonList.css';
 
-const PokemonList = ({ search, addFavorite }) => {
+const PokemonList = ({ search, addFavorite, favorites, removeFavorite }) => {
     const [pokemonList, setPokemonList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
@@ -45,14 +45,19 @@ const PokemonList = ({ search, addFavorite }) => {
     return (
         <div className="pokemon-list">
             <div className="pokemon-cards">
-                {displayedPokemons.map(pokemon => (
-                    <PokemonCard
-                        key={pokemon.name}
-                        name={pokemon.name}
-                        url={pokemon.url}
-                        addFavorite={addFavorite}
-                    />
-                ))}
+            {displayedPokemons.map(pokemon => {
+    const isFavorite = favorites.some(fav => fav.pokemonId === pokemon.id);
+    return (
+        <PokemonCard
+            key={pokemon.name}
+            name={pokemon.name}
+            url={pokemon.url}
+            addFavorite={addFavorite}
+            removeFavorite={removeFavorite}
+            isFavorite={isFavorite} 
+            />
+        );
+    })}
             </div>
             <div className="pagination">
                 <button onClick={handlePrevPage} disabled={currentPage === 1}>

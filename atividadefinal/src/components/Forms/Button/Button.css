@@ -1,11 +1,11 @@
 button {
-    padding: 10px; /* Espaço interno no botão */
-    border: none; /* Remove a borda padrão do botão */
-    background-color: #ff1c1c; /* Cor de fundo do botão */
-    color: white; /* Cor do texto do botão */
-    border-radius: 4px; /* Bordas arredondadas para o botão */
-    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
-    width: 100%; /* Faz com que o botão ocupe toda a largura disponível */
+    padding: 10px; 
+    border: none; 
+    background-color: #ff1c1c; 
+    color: white; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    width: 100%;
 }
 
 button:hover {

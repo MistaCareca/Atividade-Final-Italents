@@ -1,7 +1,7 @@
 input {
-    margin-bottom: 15px; /* Espaço entre os campos de entrada */
-    padding: 10px; /* Espaço interno nos campos de entrada */
-    border: 1px solid #ccc; /* Borda dos campos de entrada */
-    border-radius: 4px; /* Bordas arredondadas para os campos */
-    width: 100%; /* Faz com que o input ocupe toda a largura disponível */
+    margin-bottom: 15px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    width: 100%; 
 }

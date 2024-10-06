@@ -4,12 +4,12 @@ form {
     align-items: center; 
     border: solid 1px #000;
     background-color: rgb(110, 110, 110);
-    width: 300px; /* Largura do formulário */
-    padding: 20px; /* Adiciona espaço interno ao redor do formulário */
-    border-radius: 8px; /* Bordas arredondadas */
+    width: 300px; 
+    padding: 20px;
+    border-radius: 8px;
 }
 
 label {
-    font-size: 12px; /* Aumenta a legibilidade */
-    margin-bottom: 5px; /* Espaço entre o texto e o input */
+    font-size: 12px; 
+    margin-bottom: 5px; 
 }

@@ -3,8 +3,8 @@
     background-color: #e0f7fa;
     min-height: 100vh;
     padding: 20px;
-    display: flex; /* Ativa o Flexbox */
-    flex-direction: column; /* Pode ser 'column' ou 'row' dependendo do layout desejado */
-    justify-content: center; /* Centraliza verticalmente */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
     align-items: center;
 }

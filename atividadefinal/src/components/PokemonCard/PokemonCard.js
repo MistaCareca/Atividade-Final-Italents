@@ -3,10 +3,9 @@ import axios from 'axios';
 import PokemonDetail from '../PokemonDetail/PokemonDetail';
 import './PokemonCard.css';
 
-const PokemonCard = ({ name, url, addFavorite }) => {
+const PokemonCard = ({ name, url, addFavorite, isFavorite, removeFavorite }) => {
     const [details, setDetails] = useState(null);
     const [showDetail, setShowDetail] = useState(false);
-    const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -21,31 +20,16 @@ const PokemonCard = ({ name, url, addFavorite }) => {
         fetchDetails();
     }, [url, name]);
 
-    useEffect(() => {
-        const checkFavorite = async () => {
-            try {
-                const res = await axios.get(`http://localhost:3001/favorites?pokemonId=${details ? details.id : ''}`);
-                setIsFavorite(res.data.length > 0);
-            } catch (error) {
-                console.error('Erro ao verificar favorito:', error);
-            }
-        };
-
-        if (details) {
-            checkFavorite();
-        }
-    }, [details, name]);
-
     const toggleFavorite = () => {
         if (isFavorite && details) {
-            alert('Para remover um favorito, utilize a lista de favoritos.');
+            removeFavorite(details.id); 
         } else if (details) {
             const pokemonToAdd = {
                 pokemonId: details.id,
                 name: details.name,
-                url: url
+                url: url,
             };
-            addFavorite(pokemonToAdd);
+            addFavorite(pokemonToAdd); 
         }
     };
 
@@ -54,7 +38,7 @@ const PokemonCard = ({ name, url, addFavorite }) => {
             <h3>{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
             {details && <img src={details.sprites.front_default} alt={name} />}
             <div className="card-buttons">
-                <button onClick={toggleFavorite} disabled={isFavorite}>
+                <button onClick={toggleFavorite}>
                     {isFavorite ? 'Favorito' : 'Adicionar aos Favoritos'}
                 </button>
                 <button onClick={() => setShowDetail(!showDetail)}>
