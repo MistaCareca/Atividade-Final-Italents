@@ -6,6 +6,7 @@ import Layout from './components/Layout/Layout';
 import SearchForm from './components/SearchForm/SearchForm';
 import PokemonList from './components/PokemonList/PokemonList';
 import Favorites from './components/Favorites/Favorites';
+import Forms from './components/Forms/Forms';
 import axios from 'axios';
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
                     addFavorite={addFavorite} 
                 />
             </Layout>
+            <Forms/>
         </div>
     );
 }
