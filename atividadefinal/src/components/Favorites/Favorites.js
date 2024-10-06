@@ -7,11 +7,14 @@ const Favorites = ({ favorites, removeFavorite }) => {
     return (
         <div className="favorites">
             <h2>Favoritos</h2>
-            <ul>
+            <ul className="favorites-list">
                 {favorites.map((pokemon) => (
                     <li key={pokemon.id} className="favorite-item">
                         <span>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</span>
-                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.pokemonId}.png`} alt={pokemon.name} />
+                        <img 
+                            src={pokemon.url || `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.pokemonId}.png`} 
+                            alt={pokemon.name} 
+                        />
                         <button onClick={() => removeFavorite(pokemon.id)}>Remover</button>
                     </li>
                 ))}

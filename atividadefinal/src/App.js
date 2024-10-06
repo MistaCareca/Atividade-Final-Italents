@@ -5,7 +5,7 @@ import Layout from './components/Layout/Layout';
 import SearchForm from './components/SearchForm/SearchForm';
 import PokemonList from './components/PokemonList/PokemonList';
 import Favorites from './components/Favorites/Favorites';
-import Forms from './components/Forms/Forms';
+import Forms from './components/forms/Forms';
 import axios from 'axios';
 
 function App() {

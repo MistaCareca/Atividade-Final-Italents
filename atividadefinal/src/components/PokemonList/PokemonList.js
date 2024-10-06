@@ -46,7 +46,7 @@ const PokemonList = ({ search, addFavorite, favorites, removeFavorite }) => {
         <div className="pokemon-list">
             <div className="pokemon-cards">
             {displayedPokemons.map(pokemon => {
-    const isFavorite = favorites.some(fav => fav.pokemonId === pokemon.id);
+    const isFavorite = favorites.some(fav => fav.pokemonId === pokemon.name); // Usando pokemon.name em vez de pokemon.id
     return (
         <PokemonCard
             key={pokemon.name}
@@ -55,9 +55,9 @@ const PokemonList = ({ search, addFavorite, favorites, removeFavorite }) => {
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
             isFavorite={isFavorite} 
-            />
-        );
-    })}
+        />
+    );
+})}
             </div>
             <div className="pagination">
                 <button onClick={handlePrevPage} disabled={currentPage === 1}>

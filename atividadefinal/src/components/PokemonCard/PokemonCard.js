@@ -22,12 +22,13 @@ const PokemonCard = ({ name, url, addFavorite, isFavorite, removeFavorite }) => 
 
     const toggleFavorite = () => {
         if (isFavorite && details) {
-            removeFavorite(details.id); 
+            removeFavorite(details.id); // Certifique-se de que esse ID é o correto
         } else if (details) {
+            // Aqui é onde você deve definir o objeto pokemonToAdd
             const pokemonToAdd = {
-                pokemonId: details.id,
+                pokemonId: details.name, // Use o nome ou ID apropriado
                 name: details.name,
-                url: url,
+                url: details.sprites.front_default, // Use a URL correta
             };
             addFavorite(pokemonToAdd); 
         }
