@@ -15,7 +15,7 @@ function App() {
     const fetchFavorites = async () => {
         try {
             const res = await axios.get('http://localhost:3001/favorites');
-            console.log('Favoritos buscados:', res.data); // Log
+            console.log('Favoritos buscados:', res.data);
             setFavorites(res.data);
         } catch (error) {
             console.error('Erro ao buscar favoritos:', error);
@@ -59,11 +59,7 @@ function App() {
                 <SearchForm onSearch={setSearchTerm} />
                 <Favorites favorites={favorites} removeFavorite={removeFavorite} />
                 <PokemonList 
-                    search={searchTerm}
-                    addFavorite={addFavorite} 
-                    favorites={favorites}
-                    removeFavorite={removeFavorite}
-                />
+                    search={searchTerm} addFavorite={addFavorite} favorites={favorites} removeFavorite={removeFavorite}/>
             </Layout>
             <Forms/>
         </div>
